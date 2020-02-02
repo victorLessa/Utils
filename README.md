@@ -5,7 +5,7 @@
 
 ## ExtractValues
 
-### This script filters a json file and exports another file with the result. The file is generated in the same folder as the base file
+#### This script filters a json file and exports another file with the result. The file is generated in the same folder as the base file
 
 ```bash
   node extractValues <file.json> <property> // file_extract.json
