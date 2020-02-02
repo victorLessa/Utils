@@ -1,7 +1,7 @@
 const fs = require('fs')
 
 fs.readFile(process.argv[2], (err, data) => {
-  if(err) console.error(err)
+  if(err) return console.error(err)
   let argv = JSON.parse(data)
  
   let result = []
