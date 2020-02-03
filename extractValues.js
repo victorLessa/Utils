@@ -1,5 +1,9 @@
 const fs = require('fs')
 
+function generate(result) {
+  fs.writeFile(`${process.argv[2]}_extract.json`, JSON.stringify(result, null, 2), () => {})
+}
+
 fs.readFile(process.argv[2], (err, data) => {
   if(err) return console.error(err)
   let argv = JSON.parse(data)
@@ -10,11 +14,11 @@ fs.readFile(process.argv[2], (err, data) => {
     for(let stmt of argv) {
       result.push(stmt[process.argv[3]])
     }
-    fs.writeFile(`${process.argv[2]}_extract.json`, JSON.stringify(result), () => {})
+    generate(result)
   } else {
     console.info('Processando objeto...')
     result.push(argv[process.argv[3]])
-    fs.writeFile(`${process.argv[2]}_extract.json`, JSON.stringify(result), () => {})
+    generate(result)
   }
   console.info(`Arquivo ${process.argv[2]}_extract.json gerado`)
 })
